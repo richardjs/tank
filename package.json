@@ -1,13 +1,13 @@
 {
   "name": "tank",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
+  "repository": "https://github.com/richardjs/tank.git",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Richard Schneider",
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
