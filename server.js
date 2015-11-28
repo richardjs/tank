@@ -10,6 +10,18 @@ var app = express()
 var server = http.createServer(app)
 var io = socketio(server)
 
+var games = {}
+
+app.get('/', function(req, res){
+	res.redirect('/game/'+uuid.v4())
+})
+
+app.get('/game/:gameid', function(req, res){
+	var gameid = req.params.gameid
+	games[gameid] = 'game here'
+	res.sendFile('game.html', {root: './static'})
+})
+
 app.use(express.static('static'))
 
 server.listen(C.PORT, function(){
