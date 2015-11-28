@@ -1,4 +1,8 @@
 'use strict'
+var socket = io()
+window.socket = socket
+var gameID = window.location.href.replace(/^.*game\//, '')
+socket.emit('join', gameID)
 
 var s2d = require('./lib/s2d.js')
 
@@ -66,3 +70,4 @@ frame()
 //camera.rotation.x = -Math.PI/2
 //camera.position.y = 25
 camera.position.y = 1
+

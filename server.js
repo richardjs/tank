@@ -17,12 +17,23 @@ app.get('/', function(req, res){
 })
 
 app.get('/game/:gameid', function(req, res){
-	var gameid = req.params.gameid
-	games[gameid] = 'game here'
 	res.sendFile('game.html', {root: './static'})
 })
 
 app.use(express.static('static'))
+
+io.on('connection', function(socket){
+	console.log('connection')
+	var game = null
+
+	socket.on('join', function(gameID){
+		if(!gameID in games){
+			games[gameID] = 'game goes here'
+		}
+		game = games[gameID]
+		// game.addPlayer(socket)
+	})
+})
 
 server.listen(C.PORT, function(){
 	var host = server.address().address
